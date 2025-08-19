@@ -3,7 +3,34 @@ micronaut:
     name: bookstore
   server:
     port: 8000
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+      rapidoc:
+        paths: classpath:META-INF/swagger/views/rapidoc
+        mapping: /rapidoc/**
+
 netty:
   default:
     allocator:
       max-order: 3
+
+# OpenAPI configuration
+swagger-ui:
+  oauth2RedirectUrl: http://localhost:8000/swagger-ui/oauth2-redirect.html
+# For development - expose actuator endpoints (optional)
+# endpoints:
+#   all:
+#     enabled: true
+#     sensitive: false
+#   health:
+#     enabled: true
+#     sensitive: false
+#   info:
+#     enabled: true
+#     sensitive: false
