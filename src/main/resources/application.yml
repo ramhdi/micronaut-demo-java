@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: bookstore
+  server:
+    port: 8000
+netty:
+  default:
+    allocator:
+      max-order: 3
